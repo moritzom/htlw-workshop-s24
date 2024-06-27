@@ -2,6 +2,8 @@ import envSchema  from './util/env.util';
 import express, { response } from 'express';
 import router from './routes';
 import cors from 'cors';
+import envUtil from './util/env.util';
+import mongoose from 'mongoose';
 
 const app = express();
 
@@ -11,7 +13,11 @@ app.use(cors());
 
 app.use("/", router);
 
-app.listen(envSchema.PORT, () =>{
+app.listen(envSchema.PORT, async () =>{
+    await mongoose.connect(envUtil.MONGO_URL);
+
+    console.log('Connected to MongoDB.');
+
     console.log('Server started.');
 });
 
