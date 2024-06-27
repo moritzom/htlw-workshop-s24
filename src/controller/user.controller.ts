@@ -2,6 +2,7 @@ import type { Request, Response } from "express";
 import { createUserSchema } from "../schema/user.schema";
 import { UserModel } from "../model/user.model";
 import { pick } from "lodash";
+import { createUser } from "../service/user.service";
 
 
 export async function createUserHandler(req:Request, res: Response) {
@@ -11,7 +12,7 @@ export async function createUserHandler(req:Request, res: Response) {
 
     if(validated.success){
         try{
-            const user = await UserModel.create(validated.data);
+            const user = await createUser(validated.data);
 
             res.status(200).json(pick(user, "username", "email", "_id"));
         }catch(e){
