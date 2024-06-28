@@ -1,4 +1,3 @@
-import envSchema  from './util/env.util';
 import express, { response } from 'express';
 import router from './routes';
 import cors from 'cors';
@@ -13,7 +12,7 @@ app.use(cors());
 
 app.use("/", router);
 
-app.listen(envSchema.PORT, async () =>{
+app.listen(envUtil.PORT, async () =>{
     await mongoose.connect(envUtil.MONGO_URL);
 
     console.log('Connected to MongoDB.');
@@ -21,4 +20,4 @@ app.listen(envSchema.PORT, async () =>{
     console.log('Server started.');
 });
 
-console.log(envSchema.PORT);
+console.log(envUtil.PORT);
