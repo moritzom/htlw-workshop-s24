@@ -1,4 +1,5 @@
 node_modules/
 dist/
+rsa/
 package-lock.json
 .env
