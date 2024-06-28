@@ -1,0 +1,24 @@
+openapi: 3.0.0
+info:
+  title: Todo App API
+  version: 0.1.0
+  description: Documents the API endpoints for out TODO App
+
+servers:
+  - url: http://localhost:3000
+    description: local development environment
+
+paths:
+  /user:
+    get:
+      tags:
+        - User
+      description: Test endpoint for User
+      responses:
+        "200":
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Hello, World!
