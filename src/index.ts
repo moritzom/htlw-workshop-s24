@@ -18,6 +18,13 @@ app.listen(envUtil.PORT, async () =>{
     console.log('Connected to MongoDB.');
 
     console.log('Server started.');
+
+    const car = {
+        brand: "BMW",
+        color: "orange"
+    };
+
+    const car2 = { ...car, motor: "N55" };
 });
 
 console.log(envUtil.PORT);
